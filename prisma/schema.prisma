@@ -1,0 +1,49 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String     @id @default(uuid())
+  email     String     @unique
+  password  String
+  barbecues Barbecue[]
+}
+
+model Barbecue {
+  id        String   @id @default(uuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  ownerId String
+  owner   User   @relation(fields: [ownerId], references: [id])
+
+  name        String
+  description String
+  date        String
+  valueWithAlcohol Float
+  valueWithoutAlcohol Float
+  totalValue  Float?
+  deleted     Boolean  @default(false)
+  guests      Guest[]
+
+  @@unique([ownerId, name])
+  @@index([ownerId, id])
+}
+
+model Guest {
+  id        String   @id @default(uuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  barbecueId String
+  barbecue   Barbecue @relation(fields: [barbecueId], references: [id])
+
+  name       String
+  valueToPay Float
+  deleted    Boolean @default(false)
+}
