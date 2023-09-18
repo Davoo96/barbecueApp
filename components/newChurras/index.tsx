@@ -4,7 +4,7 @@ import Button from '@/components/button';
 import Input from '@/components/input';
 import { createNewBarbecue } from '@/lib/api';
 import Image from 'next/image';
-import { FormEvent, useEffect, useState } from 'react';
+import { FormEvent, useState } from 'react';
 import Modal from 'react-modal';
 import { PatternFormat } from 'react-number-format';
 
@@ -28,16 +28,18 @@ const NewChurras = () => {
     setValueWithoutAlcohol(0);
   };
 
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    await createNewBarbecue({
+    createNewBarbecue({
       name,
       description,
       date,
       id: new Date().getTime().toString(),
       valueWithAlcohol,
       valueWithoutAlcohol,
-    }).catch((err) => console.error(err));
+    })
+      .then(() => location.reload())
+      .catch((err) => console.error(err));
     resetForm();
     closeModal();
   };

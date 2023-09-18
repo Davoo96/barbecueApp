@@ -1,7 +1,6 @@
 import BarbecueList from '@/components/barbecueList';
 import { getUserFromCookie } from '@/lib/auth';
 import { db } from '@/lib/db';
-import { Barbecue } from '@prisma/client';
 import { cookies } from 'next/headers';
 
 const getBarbecues = async () => {
@@ -10,7 +9,7 @@ const getBarbecues = async () => {
     where: {
       ownerId: user?.id,
     },
-    take: 6,
+    take: 10,
     orderBy: {
       date: 'asc',
     },

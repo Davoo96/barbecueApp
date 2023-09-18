@@ -21,7 +21,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${raleway.className} relative`}>
         <div className="relative flex items-center justify-center">
-          <div className="bg-primary absolute inset-0 w-full h-[300px] z-10">
+          <div className="bg-primary absolute inset-0 w-full h-[250px] z-10">
             <Image
               src="/bbq_pattern.svg"
               width={636}
@@ -39,7 +39,7 @@ export default function RootLayout({
         </div>
         {children}
         <Image
-          src="trinca.svg"
+          src="/trinca.svg"
           width={48}
           height={48}
           alt="Trinca logo"

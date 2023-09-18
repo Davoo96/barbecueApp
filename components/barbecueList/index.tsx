@@ -7,7 +7,7 @@ const BarbecueList = ({ barbecues }: { barbecues: BarbecueWithGuests[] }) => {
   return (
     <>
       {barbecues && barbecues.length ? (
-        <ul className="grid grid-cols-2 gap-6 z-30">
+        <ul className="grid grid-cols-1 md:grid-cols-2 gap-6 z-30">
           {barbecues.map((barbecue) => (
             <li key={barbecue.id}>
               <Link href={`/barbecues/${barbecue.id}`}>

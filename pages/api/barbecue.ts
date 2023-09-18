@@ -8,11 +8,9 @@ export default async function handler(
 ) {
   const cookieName = process.env.COOKIE_NAME;
   if (!cookieName) {
-    return res
-      .status(500)
-      .json({
-        error: 'COOKIE_NAME not found please provide one on the .env file',
-      });
+    return res.status(500).json({
+      error: 'COOKIE_NAME not found please provide one on the .env file',
+    });
   }
   const user = await validateJWT(req.cookies[cookieName] as string);
 

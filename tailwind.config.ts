@@ -18,6 +18,7 @@ const config: Config = {
         secondary: 'rgba(255, 216, 54, 0.0)',
         tertiary: '#FAFAFA',
         quaternary: '#F1F1F1',
+        quintenary: '#E5C231',
       },
       fontFamily: {
         Montserrat: ['Montserrat', 'sans-serif'],
