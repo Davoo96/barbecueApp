@@ -43,7 +43,7 @@ const AuthForm = ({ mode }: { mode: 'signin' | 'register' }) => {
           await signin(formState);
         }
 
-        router.replace('/barbecues');
+        router.replace('/churrascos');
       } catch (e) {
         setError(`Could not ${mode}`);
       } finally {
