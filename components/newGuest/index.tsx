@@ -48,59 +48,62 @@ const NewGuest = ({ barbecue }: { barbecue: BarbecueWithGuests }) => {
         className="w-3/4 bg-primary rounded-xl p-8"
       >
         <h1 className="text-3xl mb-6">Crie um novo Churras!</h1>
-        <form
-          className="flex flex-wrap items-center justify-between gap-4"
-          onSubmit={handleSubmit}
-        >
-          <div>
-            <label htmlFor="name">Nome</label>
-            <Input
-              required
-              className="mt-2"
-              placeholder="Nome do participante"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              id="name"
-            />
+        <form onSubmit={handleSubmit}>
+          <div className="flex flex-wrap items-center justify-between w-full">
+            <div className="w-full md:w-auto">
+              <label htmlFor="name">Nome</label>
+              <Input
+                required
+                className="mt-2"
+                placeholder="Nome do participante"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                id="name"
+              />
+            </div>
+            <div className="mt-3">
+              <input
+                type="radio"
+                className="mt-2 mr-2"
+                name="valueToPay"
+                value={valueWithAlcoholToPay}
+                onChange={() => setValueToPay(valueWithAlcoholToPay)}
+                id="guests"
+              />
+              <label htmlFor="guests">
+                Valor c/ álcool: R$ {valueWithAlcoholToPay}
+              </label>
+            </div>
+            <div className="mt-3">
+              <input
+                type="radio"
+                className="mt-2 mr-2"
+                name="valueToPay"
+                value={valueWithoutAlcoholToPay}
+                onChange={() => setValueToPay(valueWithoutAlcoholToPay)}
+                id="value"
+              />
+              <label htmlFor="value">
+                Valor sem álcool: R$ {valueWithoutAlcoholToPay}
+              </label>
+            </div>
+            <div className="mt-3">
+              <label htmlFor="valueToPay">Valor de pagamento em R$:</label>
+              <Input
+                required
+                type="number"
+                disabled
+                className="mt-2"
+                placeholder="Valor em reais"
+                value={valueToPay}
+                onChange={(e) => setValueToPay(Number(e.target.value))}
+                id="valueToPay"
+              />
+            </div>
           </div>
-          <div>
-            <label htmlFor="valueToPay">Valor de pagamento em R$:</label>
-            <Input
-              required
-              type="number"
-              disabled
-              className="mt-2"
-              placeholder="Valor em reais"
-              value={valueToPay}
-              onChange={(e) => setValueToPay(Number(e.target.value))}
-              id="valueToPay"
-            />
+          <div className="mt-4">
+            <Button type="submit" title="Salvar" />
           </div>
-          <div>
-            <label htmlFor="guests">Valor sugerido com álcool</label>
-            <Input
-              type="radio"
-              className="mt-2"
-              placeholder="R$"
-              name="valueToPay"
-              value={valueWithAlcoholToPay}
-              onChange={() => setValueToPay(valueWithAlcoholToPay)}
-              id="guests"
-            />
-          </div>
-          <div>
-            <label htmlFor="value">Valor sugerido sem álcool</label>
-            <Input
-              type="radio"
-              className="mt-2"
-              name="valueToPay"
-              placeholder="Valor em reais"
-              value={valueWithAlcoholToPay}
-              onChange={() => setValueToPay(valueWithoutAlcoholToPay)}
-              id="value"
-            />
-          </div>
-          <Button type="submit" title="Salvar" />
         </form>
       </Modal>
     </div>

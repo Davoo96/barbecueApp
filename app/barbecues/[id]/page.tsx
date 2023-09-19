@@ -38,7 +38,10 @@ const BarbecuePage = async ({ params }: { params: { id: string } }) => {
         <div className="flex items-center justify-between">
           <div>
             <p className="font-extrabold text-[28px]">{barbecue[0].date}</p>
-            <p className="text-4xl font-bold">{barbecue[0].name}</p>
+            <p className="text-4xl font-bold text-opacity-8">
+              {barbecue[0].name}
+            </p>
+            <p className="pt-4">{barbecue[0].description}</p>
           </div>
           <div>
             <p>

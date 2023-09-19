@@ -18,7 +18,7 @@ const BarbecueDashboard = ({ barbecue }: { barbecue: BarbecueWithGuests }) => {
           key={guest.id}
           className="flex justify-between border-b-quintenary border-b-[1px] text-xl font-bold pb-2 mb-2"
         >
-          <p>{guest.name}</p>
+          <p className="text-opacity-8">{guest.name}</p>
           <div className="flex items-center justify-center gap-2">
             <span>R$ {guest.valueToPay}</span>
             <button onClick={() => handleOnClick(guest.id)}>

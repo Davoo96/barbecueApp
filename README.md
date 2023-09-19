@@ -1,34 +1,32 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Iniciando o Projeto
 
-## Getting Started
+Para dar início ao projeto, siga os passos abaixo:
 
-First, run the development server:
+## Instale as Dependências
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+Certifique-se de que todas as dependências do projeto estão instaladas executando o comando npm install.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Inicialize a Aplicação
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Utilize o comando `npm run dev` para iniciar a aplicação.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Configuração do Banco de Dados
 
-## Learn More
+Este projeto requer um banco de dados, portanto, siga as instruções abaixo para configurá-lo.
 
-To learn more about Next.js, take a look at the following resources:
+- Renomeie o arquivo `.env.copy` para `.env`.
+- Dentro do arquivo `.env`, insira os valores necessários. Lembre-se de que você pode escolher os nomes para as variáveis jwt e cookie, mas para o banco de dados, recomendamos a criação de uma conta no [Railway](https://railway.app/dashboard).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Configuração do Banco de Dados no Railway
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- Crie uma conta no `Railway`, o que lhe dará créditos para usar um banco de dados por um período determinado.
+- Crie um novo projeto com o banco de dados de sua preferência. Recomendamos o uso do `PostgreSQL`, que foi a escolha para este projeto.
+- Vá para a aba Connect no Railway.
+- Role para baixo até encontrar a seção Available Variables e copie a variável DATABASE_URL.
+- Cole essa variável no arquivo `.env` que você configurou anteriormente.
 
-## Deploy on Vercel
+## Sincronização do Banco de Dados
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Por fim, para sincronizar o banco de dados com o projeto, utilize o comando npx prisma migrate dev. Isso garantirá que tudo esteja pronto para ser testado.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Com essas etapas concluídas, o projeto estará configurado e pronto para ser executado e testado.
