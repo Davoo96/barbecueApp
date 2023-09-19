@@ -43,7 +43,7 @@ const AuthForm = ({ mode }: { mode: 'signin' | 'register' }) => {
           await signin(formState);
         }
 
-        router.replace('/churrascos');
+        router.replace('/barbecues');
       } catch (e) {
         setError(`Could not ${mode}`);
       } finally {
@@ -64,7 +64,13 @@ const AuthForm = ({ mode }: { mode: 'signin' | 'register' }) => {
         >
           Login
         </label>
-        <Input type="text" placeholder="e-mail" />
+        <Input
+          type="text"
+          placeholder="e-mail"
+          onChange={(e) =>
+            setFormState((s) => ({ ...s, email: e.target.value }))
+          }
+        />
       </div>
       <label
         htmlFor="login"
@@ -72,9 +78,14 @@ const AuthForm = ({ mode }: { mode: 'signin' | 'register' }) => {
       >
         Senha
       </label>
-      <Input required type="password" placeholder="senha" />
-
-      <div></div>
+      <Input
+        required
+        type="password"
+        placeholder="senha"
+        onChange={(e) =>
+          setFormState((s) => ({ ...s, password: e.target.value }))
+        }
+      />
 
       <div className="flex items-center justify-between mt-[74px] max-w-[600px] mx-auto">
         <Link
